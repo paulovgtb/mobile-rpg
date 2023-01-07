@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rat.png-ee9ffe9103e74fbc14ba91b40d7c6186.stex"
+path="res://.import/SlashEffect.png-2d3810c3aacd380354c8a60ca96fe2a6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MobileRPG Resources/Images/Rat.png"
-dest_files=[ "res://.import/Rat.png-ee9ffe9103e74fbc14ba91b40d7c6186.stex" ]
+source_file="res://Images/SlashEffect.png"
+dest_files=[ "res://.import/SlashEffect.png-2d3810c3aacd380354c8a60ca96fe2a6.stex" ]
 
 [params]
 

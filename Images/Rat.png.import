@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Button9SlicePressed.png-ba2b7cebbbb9266d212672b5c1255c37.stex"
+path="res://.import/Rat.png-99eeca3c6e43c78f212618dc4a5bc83e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MobileRPG Resources/Images/Button9SlicePressed.png"
-dest_files=[ "res://.import/Button9SlicePressed.png-ba2b7cebbbb9266d212672b5c1255c37.stex" ]
+source_file="res://Images/Rat.png"
+dest_files=[ "res://.import/Rat.png-99eeca3c6e43c78f212618dc4a5bc83e.stex" ]
 
 [params]
 

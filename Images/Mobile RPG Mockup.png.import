@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dungeon.png-7370238b6ebad3a4a7e535ba603d8f21.stex"
+path="res://.import/Mobile RPG Mockup.png-e63556b87e50af24c29bbe207e0653ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MobileRPG Resources/Images/Dungeon.png"
-dest_files=[ "res://.import/Dungeon.png-7370238b6ebad3a4a7e535ba603d8f21.stex" ]
+source_file="res://Images/Mobile RPG Mockup.png"
+dest_files=[ "res://.import/Mobile RPG Mockup.png-e63556b87e50af24c29bbe207e0653ef.stex" ]
 
 [params]
 

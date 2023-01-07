@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Button9SliceHover.png-262cbea08e94b48f529135baf06692c7.stex"
+path="res://.import/Dungeon.png-08737d8c3a74b45739100605536b08cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MobileRPG Resources/Images/Button9SliceHover.png"
-dest_files=[ "res://.import/Button9SliceHover.png-262cbea08e94b48f529135baf06692c7.stex" ]
+source_file="res://Images/Dungeon.png"
+dest_files=[ "res://.import/Dungeon.png-08737d8c3a74b45739100605536b08cd.stex" ]
 
 [params]
 
