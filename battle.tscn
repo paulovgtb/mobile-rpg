@@ -13,7 +13,6 @@ position = Vector2( 45, 80 )
 texture = ExtResource( 3 )
 
 [node name="MobileRpgMockup" type="Sprite" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0.168627 )
 position = Vector2( 45, 80 )
 texture = ExtResource( 1 )
@@ -25,15 +24,20 @@ position = Vector2( 46, 32 )
 texture = ExtResource( 2 )
 
 [node name="HPLabel" type="Label" parent="Enemy"]
-margin_left = -15.0
+margin_left = -13.0
 margin_top = -26.0
-margin_right = 17.0
-margin_bottom = -12.0
+margin_right = 12.0
+margin_bottom = -15.0
 text = "25hp"
+align = 1
+valign = 1
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sword" type="Button" parent="UI"]
 margin_left = 11.0
