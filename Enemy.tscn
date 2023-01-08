@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Images/Rat.png" type="Texture" id=2]
+
+[node name="Enemy" type="Node2D"]
+position = Vector2( 46, 32 )
+script = ExtResource( 1 )
+
+[node name="Sprit" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="HPLabel" type="Label" parent="."]
+margin_left = -13.0
+margin_top = -26.0
+margin_right = 12.0
+margin_bottom = -15.0
+text = "25hp"
+align = 1
+valign = 1
