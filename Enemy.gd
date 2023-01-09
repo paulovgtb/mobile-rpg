@@ -15,6 +15,6 @@ func set_hp(new_hp):
 		emit_signal("died")
 		queue_free()
 	else:
-		animationPlayer.play("Shake")
+		animationPlayer.play("Shake")	
 		yield(animationPlayer, "animation_finished")
 		animationPlayer.play("Attack")

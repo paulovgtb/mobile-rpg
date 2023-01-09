@@ -13,7 +13,6 @@ position = Vector2( 45, 80 )
 texture = ExtResource( 3 )
 
 [node name="MobileRpgMockup" type="Sprite" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0.168627 )
 position = Vector2( 45, 80 )
 texture = ExtResource( 1 )
@@ -34,13 +33,6 @@ margin_top = 47.0
 margin_right = 87.0
 margin_bottom = 70.0
 
-[node name="Sword" type="Button" parent="UI"]
-margin_left = 9.0
-margin_top = 73.0
-margin_right = 41.0
-margin_bottom = 86.0
-text = "Sword"
-
 [node name="TextboxPanel" type="Panel" parent="UI"]
 margin_left = -2.0
 margin_top = 137.0
@@ -50,5 +42,68 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="GridContainer" type="GridContainer" parent="UI"]
+margin_left = 9.0
+margin_top = 73.0
+margin_right = 81.0
+margin_bottom = 134.0
+custom_constants/vseparation = 3
+custom_constants/hseparation = 8
+columns = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sword" type="Button" parent="UI/GridContainer"]
+margin_right = 32.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 32, 13 )
+text = "Sword"
+
+[node name="Button" type="Button" parent="UI/GridContainer"]
+margin_left = 40.0
+margin_right = 72.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="Button2" type="Button" parent="UI/GridContainer"]
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="Button3" type="Button" parent="UI/GridContainer"]
+margin_left = 40.0
+margin_top = 16.0
+margin_right = 72.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="Button4" type="Button" parent="UI/GridContainer"]
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="Button5" type="Button" parent="UI/GridContainer"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 72.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="Button6" type="Button" parent="UI/GridContainer"]
+margin_top = 48.0
+margin_right = 32.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="Button7" type="Button" parent="UI/GridContainer"]
+margin_left = 40.0
+margin_top = 48.0
+margin_right = 72.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 32, 13 )
+
 [connection signal="died" from="Enemy" to="." method="_on_Enemy_died"]
-[connection signal="pressed" from="UI/Sword" to="." method="_on_Sword_pressed"]
+[connection signal="pressed" from="UI/GridContainer/Sword" to="." method="_on_Sword_pressed"]
