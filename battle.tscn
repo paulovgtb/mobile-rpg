@@ -50,4 +50,5 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[connection signal="died" from="Enemy" to="." method="_on_Enemy_died"]
 [connection signal="pressed" from="UI/Sword" to="." method="_on_Sword_pressed"]

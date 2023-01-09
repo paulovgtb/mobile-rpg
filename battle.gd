@@ -1,9 +1,13 @@
 extends Node
 
-onready var hpLabel = $Enemy/HPLabel
+onready var enemy = $Enemy
+onready var swordButton = $UI/Sword
 
-func _on_Sword_pressed():
-	var enemy = find_node("Enemy")
-	
+func _on_Sword_pressed():	
 	if enemy != null:
 		enemy.hp -= 4
+
+
+func _on_Enemy_died():
+	swordButton.hide()
+	enemy = null
