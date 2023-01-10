@@ -18,7 +18,6 @@ func attack(target) -> void:
 	animationPlayer.play("Attack")
 	self.target = target
 	yield(animationPlayer, "animation_finished")
-	self.target = null
 	emit_signal("end_turn")
 
 func deal_damage():
