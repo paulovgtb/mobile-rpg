@@ -1,6 +1,7 @@
 extends Node2D
 
 var hp = 25 setget set_hp
+var target = null
 
 onready var hpLabel = $HPLabel
 onready var animationPlayer = $AnimationPlayer
@@ -15,12 +16,13 @@ func set_hp(new_hp):
 func attack(target) -> void:
 	yield(get_tree().create_timer(0.4), "timeout")
 	animationPlayer.play("Attack")
+	self.target = target
 	yield(animationPlayer, "animation_finished")
-	target.hp -= 3
+	self.target = null
 	emit_signal("end_turn")
 
-func deal_damage(amount):
-	print("Deal Damage")
+func deal_damage():
+	self.target.hp -= 4
 
 func take_damage(amount):
 	self.hp -= amount
