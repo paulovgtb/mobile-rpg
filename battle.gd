@@ -23,3 +23,6 @@ func start_player_turn():
 
 func _on_Enemy_died():
 	battleActionButtons.hide()
+
+func _on_NextRoomButton_pressed():
+	battleActionButtons.show()
