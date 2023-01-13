@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Images/Rat.png" type="Texture" id=2]
+[ext_resource path="res://HoverInfo.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=3]
 resource_name = "Attack"
@@ -79,6 +80,12 @@ tracks/0/keys = {
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="HoverInfo" parent="." instance=ExtResource( 3 )]
+margin_left = -24.0
+margin_top = -15.0
+margin_right = 24.0
+margin_bottom = 15.0
 
 [node name="Sprit" type="Sprite" parent="."]
 texture = ExtResource( 2 )

@@ -6,8 +6,15 @@
 [node name="Slime" instance=ExtResource( 1 )]
 hp = 35
 
-[node name="Sprit" parent="." index="0"]
+[node name="HoverInfo" parent="." index="0"]
+margin_left = -22.0
+margin_top = -10.0
+margin_right = 20.0
+margin_bottom = 11.0
+description = "A green slime"
+
+[node name="Sprit" parent="." index="1"]
 texture = ExtResource( 2 )
 
-[node name="HPLabel" parent="." index="1"]
+[node name="HPLabel" parent="." index="2"]
 text = "35hp"
