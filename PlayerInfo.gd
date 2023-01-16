@@ -13,26 +13,29 @@ signal mana_points_changed(value)
 signal action_points_changed(value)
 signal end_turn
 
-func take_damage(damage):
+func take_damage(damage) -> void:
 	_health_points = clamp(_health_points - damage, 0, _max_health_points)
 	emit_signal("health_points_changed", _health_points)
 
-func heal(healing):
+func heal(healing) -> void:
 	_health_points = clamp(_health_points + healing, 0, _max_health_points)
 	emit_signal("health_points_changed", _health_points)
 
-func cast_spell(mana):
-	_mana_points = clamp(_mana_points - mana, 0, _max_mana_points)
-	emit_signal("mana_points_changed", _mana_points)
+func cast_spell(mana) -> void:
+	if _mana_points >= mana:
+		_mana_points = clamp(_mana_points - mana, 0, _max_mana_points)
+		emit_signal("mana_points_changed", _mana_points)
 
-func regenerate_mana():
+func regenerate_mana() -> void:
 	_mana_points = clamp(_mana_points + _mana_regeneration, 0, _max_mana_points)
 
-
-func take_action(action_spent):
+func take_action(action_spent) -> void:
 	if _action_points >= action_spent:
 		_action_points = clamp(_action_points - action_spent, 0, _max_action_points)
 		emit_signal("action_points_changed", _action_points)
 	
 	if _action_points == 0:
 		emit_signal("end_turn")
+
+func recover_action_points() -> void:
+	_action_points = _max_action_points

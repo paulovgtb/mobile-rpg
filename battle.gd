@@ -8,10 +8,12 @@ onready var battleActionButtons = $UI/BattleActionButtons
 onready var animationPlayer = $AnimationPlayer
 onready var nextRoomButton = $UI/CenterContainer/NextRoomButton
 onready var enemyPosition = $EnemyPosition
+onready var save = $Save
 
 func _ready():
 	randomize()
 	start_player_turn()
+	save.create_enemy()
 	var enemy = BattleUnits.Enemy
 	if enemy != null:
 		enemy.connect("died", self, "_on_Enemy_died")
@@ -26,9 +28,8 @@ func start_enemy_turn():
 
 func start_player_turn():
 	battleActionButtons.show()
-	var playerStats = BattleUnits.PlayerStats
-	playerStats.ap = playerStats.max_ap
-	yield(playerStats, "end_turn")
+	PlayerInfo.recover_action_points()
+	yield(PlayerInfo, "end_turn")
 	start_enemy_turn()
 
 func create_new_enemy():
@@ -46,7 +47,6 @@ func _on_NextRoomButton_pressed():
 	nextRoomButton.hide()
 	animationPlayer.play("FadeToNewRoom")
 	yield(animationPlayer, "animation_finished")
-	var playerStats = BattleUnits.PlayerStats
-	playerStats.ap = playerStats.max_ap
+	PlayerInfo.recover_action_points()
 	battleActionButtons.show()
 	create_new_enemy()

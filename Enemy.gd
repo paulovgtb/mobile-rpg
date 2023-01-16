@@ -4,12 +4,23 @@ const BattleUnits = preload("res://BattleUnits.tres")
 
 export(int) var hp = 25 setget set_hp
 export(int) var damage = 3
+export(String, FILE, "*.png") var spriteName setget set_sprite
+export(String) var description setget set_description
 
 onready var hpLabel = $HPLabel
 onready var animationPlayer = $AnimationPlayer
+onready var hoverInfo = $HoverInfo
 
 signal died
 signal end_turn
+
+func set_description(description):
+	hoverInfo.description = description
+
+func set_sprite(spriteName):
+	var sprite = Sprite.new()
+	sprite.texture = load("res://Images/" + spriteName + ".png")
+	self.add_child(sprite)
 
 func set_hp(new_hp):
 	hp = new_hp
@@ -23,7 +34,7 @@ func attack() -> void:
 	emit_signal("end_turn")
 
 func deal_damage():
-	BattleUnits.PlayerStats.hp -= damage
+	PlayerInfo.take_damage(damage)
 
 func take_damage(amount):
 	self.hp -= amount
