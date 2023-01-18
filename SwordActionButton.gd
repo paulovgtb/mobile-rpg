@@ -8,8 +8,8 @@ func _on_pressed():
 	if enemy != null:
 		create_slash(enemy.global_position)
 		enemy.take_damage(4)
-		PlayerInfo.regenerate_mana()
-		PlayerInfo.take_action(1)
+		Player.regenerate_mana()
+		Player.take_action(1)
 
 func create_slash(position):
 	var slashEffect = slash.instance()

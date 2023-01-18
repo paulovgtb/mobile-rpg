@@ -50,5 +50,5 @@ func create_enemy():
 		enemy.hp = enemyData.hp
 		enemy.damage = enemyData.attack
 		enemy.description = enemyData.description
-		enemy.spriteName = enemyData.name
+		enemy.sprite = enemyData.name
 		enemy.connect("died", self, "_on_Enemy_died")

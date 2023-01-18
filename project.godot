@@ -26,7 +26,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-PlayerInfo="*res://PlayerInfo.gd"
+Player="*res://Player.gd"
 
 [display]
 

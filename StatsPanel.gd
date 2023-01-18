@@ -5,9 +5,9 @@ onready var mpLabel = $StatsContainer/MP
 onready var apLabel = $StatsContainer/AP
 
 func _ready():
-	connect("health_points_changed", self, "_on_health_points_changed")
-	connect("mana_points_changed", self, "_on_mana_points_changed")
-	connect("aciton_points_changed", self, "_on_action_points_changed")
+	Player.connect("health_points_changed", self, "_on_health_points_changed")
+	Player.connect("mana_points_changed", self, "_on_mana_points_changed")
+	Player.connect("action_points_changed", self, "_on_action_points_changed")
 
 func _on_health_points_changed(value):
 	hpLabel.text = "HP\n\n"+str(value)

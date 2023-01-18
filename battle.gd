@@ -7,7 +7,6 @@ export(Array, PackedScene) var enemies = []
 onready var battleActionButtons = $UI/BattleActionButtons
 onready var animationPlayer = $AnimationPlayer
 onready var nextRoomButton = $UI/CenterContainer/NextRoomButton
-onready var enemyPosition = $EnemyPosition
 onready var save = $Save
 
 func _ready():
@@ -28,16 +27,9 @@ func start_enemy_turn():
 
 func start_player_turn():
 	battleActionButtons.show()
-	PlayerInfo.recover_action_points()
-	yield(PlayerInfo, "end_turn")
+	Player.recover_action_points()
+	yield(Player, "end_turn")
 	start_enemy_turn()
-
-func create_new_enemy():
-	enemies.shuffle()
-	var Enemy = enemies.front()
-	var enemy = Enemy.instance()
-	enemyPosition.add_child(enemy)
-	enemy.connect("died", self, "_on_Enemy_died")
 
 func _on_Enemy_died():
 	nextRoomButton.show()
@@ -47,6 +39,6 @@ func _on_NextRoomButton_pressed():
 	nextRoomButton.hide()
 	animationPlayer.play("FadeToNewRoom")
 	yield(animationPlayer, "animation_finished")
-	PlayerInfo.recover_action_points()
+	Player.recover_action_points()
 	battleActionButtons.show()
-	create_new_enemy()
+#	create_new_enemy()

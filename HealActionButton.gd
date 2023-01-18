@@ -1,6 +1,6 @@
 extends "res://ActionButton.gd"
 
 func _on_pressed():
-	PlayerInfo.cast_spell(5)
-	PlayerInfo.heal(5)
-	PlayerInfo.take_action(1)
+	Player.cast_spell(5)
+	Player.heal(5)
+	Player.take_action(1)
