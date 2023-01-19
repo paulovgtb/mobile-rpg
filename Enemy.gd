@@ -1,54 +1,54 @@
-extends Node2D
+extends Node
 
-const BattleUnits = preload("res://BattleUnits.tres")
+var _health_points: int
+var _attack: int
+var path = "user://enemies.json"
+var enemies = {}
+var enemy_scene
 
-export(int) var hp = 25 setget set_hp
-export(int) var damage = 3
-export(String, FILE, "*.png") var sprite setget set_sprite
-export(String) var description setget set_description
+signal enemy_health_points_changed(value)
 
-onready var hpLabel = $HPLabel
-onready var animationPlayer = $AnimationPlayer
-onready var hoverInfo = $HoverInfo
+func _ready() -> void:
+	var main = get_tree().current_scene
+	enemy_scene = main.find_node("EnemyScene")
+	randomize()
+	load_enemies()
 
-signal died
-signal end_turn
+func load_enemies() -> void:
+	var file = File.new()
+	
+	if not file.file_exists(path):
+		return
+	
+	file.open(path, File.READ)
+	
+	var file_text = file.get_as_text()
+	enemies = parse_json(file_text)
+	
+	file.close()
 
-func set_description(description_text):
-	hoverInfo.description = description_text
+func get_new_enemy() -> void:
+	if self.enemy_scene != null:
+		enemies.enemies_list.shuffle()
+		var enemy_data = enemies.enemies_list.front()
+		print(enemy_data)
+		self._health_points = enemy_data.hp
+		emit_signal("enemy_health_points_changed", _health_points)
+		self._attack = enemy_data.attack
+		self.enemy_scene.description = enemy_data.description
+		self.enemy_scene.sprite = enemy_data.name
 
-func set_sprite(sprite_name):
-	var sprite_node = Sprite.new()
-	sprite_node.texture = load("res://Images/" + sprite_name + ".png")
-	self.add_child(sprite_node)
+func get_enemy_attack() -> int:
+	return self._attack
 
-func set_hp(new_hp):
-	hp = new_hp
-	if hpLabel != null:
-		hpLabel.text = str(hp) + "hp"
-
-func attack() -> void:
-	yield(get_tree().create_timer(0.4), "timeout")
-	animationPlayer.play("Attack")
-	yield(animationPlayer, "animation_finished")
-	emit_signal("end_turn")
-
-func deal_damage():
-	Player.take_damage(damage)
-
-func take_damage(amount):
-	self.hp -= amount
-	if is_dead():
-		emit_signal("died")
-		queue_free()
-	else:
-		animationPlayer.play("Shake")
+func take_damage(damage) -> void:
+	self._health_points -= damage
+	emit_signal("enemy_health_points_changed", _health_points)
 
 func is_dead() -> bool:
-	return hp <= 0
+	return self._health_points <= 0
 
-func _ready():
-	BattleUnits.Enemy = self
-
-func _exit_tree():
-	BattleUnits.Enemy = null
+#func clear_enemy() -> void:
+#	self._attack = 0
+#	self.enemy_scene.description = ""
+#	self.enemy_scene.sprite = ""
