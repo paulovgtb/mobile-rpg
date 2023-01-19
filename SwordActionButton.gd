@@ -4,7 +4,7 @@ const slash = preload("res://Slash.tscn")
 
 func _on_pressed() -> void:
 	if Enemy.enemy_scene != null:
-		create_slash(Enemy.enemy_scene.enemy_position.global_position)
+		create_slash(Enemy.enemy_scene.sprite_node.global_position)
 		Enemy.enemy_scene.take_damage(4)
 		Player.regenerate_mana()
 		Player.take_action(1)

@@ -36,4 +36,3 @@ func _on_NextRoomButton_pressed():
 	battleActionButtons.show()
 	Enemy.get_new_enemy()
 	Enemy.enemy_scene.show_enemy_scene()
-	Enemy.enemy_scene.connect("died", self, "_on_Enemy_died")
