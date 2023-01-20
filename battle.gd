@@ -15,7 +15,7 @@ func start_enemy_turn():
 	if Enemy.enemy_scene != null and not Enemy.is_dead():
 		Enemy.enemy_scene.attack()
 		yield(Enemy.enemy_scene, "end_turn")
-	start_player_turn()
+		start_player_turn()
 
 func start_player_turn():
 	battleActionButtons.show()
@@ -33,6 +33,6 @@ func _on_NextRoomButton_pressed():
 	animationPlayer.play("FadeToNewRoom")
 	yield(animationPlayer, "animation_finished")
 	Player.recover_action_points()
-	battleActionButtons.show()
+	start_player_turn()
 	Enemy.get_new_enemy()
 	Enemy.enemy_scene.show()
