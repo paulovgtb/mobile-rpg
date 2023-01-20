@@ -41,3 +41,4 @@ func take_action(action_spent) -> void:
 
 func recover_action_points() -> void:
 	_action_points = _max_action_points
+	emit_signal("player_action_points_changed", _action_points)
