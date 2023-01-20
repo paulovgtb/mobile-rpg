@@ -31,7 +31,6 @@ func get_new_enemy() -> void:
 	if self.enemy_scene != null:
 		enemies.enemies_list.shuffle()
 		var enemy_data = enemies.enemies_list.front()
-		print(enemy_data)
 		self._health_points = enemy_data.hp
 		emit_signal("enemy_health_points_changed", _health_points)
 		self._attack = enemy_data.attack
@@ -47,8 +46,3 @@ func take_damage(damage) -> void:
 
 func is_dead() -> bool:
 	return self._health_points <= 0
-
-#func clear_enemy() -> void:
-#	self._attack = 0
-#	self.enemy_scene.description = ""
-#	self.enemy_scene.sprite = ""

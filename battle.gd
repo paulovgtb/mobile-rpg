@@ -12,7 +12,7 @@ func _ready():
 
 func start_enemy_turn():
 	battleActionButtons.hide()
-	if Enemy.enemy_scene != null and not Enemy.enemy_scene.is_queued_for_deletion():
+	if Enemy.enemy_scene != null and not Enemy.is_dead():
 		Enemy.enemy_scene.attack()
 		yield(Enemy.enemy_scene, "end_turn")
 	start_player_turn()
@@ -35,4 +35,4 @@ func _on_NextRoomButton_pressed():
 	Player.recover_action_points()
 	battleActionButtons.show()
 	Enemy.get_new_enemy()
-	Enemy.enemy_scene.showss()
+	Enemy.enemy_scene.show()
