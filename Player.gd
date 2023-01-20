@@ -30,6 +30,7 @@ func cast_spell(mana) -> bool:
 
 func regenerate_mana() -> void:
 	_mana_points = clamp(_mana_points + _mana_regeneration, 0, _max_mana_points)
+	emit_signal("player_mana_points_changed", _mana_points)
 
 func take_action(action_spent) -> void:
 	if _action_points >= action_spent:
