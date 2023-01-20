@@ -21,10 +21,12 @@ func heal(healing) -> void:
 	_health_points = clamp(_health_points + healing, 0, _max_health_points)
 	emit_signal("player_health_points_changed", _health_points)
 
-func cast_spell(mana) -> void:
+func cast_spell(mana) -> bool:
 	if _mana_points >= mana:
 		_mana_points = clamp(_mana_points - mana, 0, _max_mana_points)
 		emit_signal("player_mana_points_changed", _mana_points)
+		return true
+	return false
 
 func regenerate_mana() -> void:
 	_mana_points = clamp(_mana_points + _mana_regeneration, 0, _max_mana_points)
