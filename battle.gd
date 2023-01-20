@@ -24,7 +24,7 @@ func start_player_turn():
 	start_enemy_turn()
 
 func _on_Enemy_died():
-	Enemy.enemy_scene.hide_enemy_scene()
+	Enemy.enemy_scene.hide()
 	nextRoomButton.show()
 	battleActionButtons.hide()
 
@@ -35,4 +35,4 @@ func _on_NextRoomButton_pressed():
 	Player.recover_action_points()
 	battleActionButtons.show()
 	Enemy.get_new_enemy()
-	Enemy.enemy_scene.show_enemy_scene()
+	Enemy.enemy_scene.showss()

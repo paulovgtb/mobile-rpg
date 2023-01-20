@@ -39,13 +39,3 @@ func take_damage(damage):
 func _on_health_points_changed(value):
 	if hpLabel != null:
 		hpLabel.text = str(value) + "hp"
-
-func hide_enemy_scene() -> void:
-	self.sprite_node.hide()
-	self.hoverInfo.hide()
-	self.hpLabel.hide()
-
-func show_enemy_scene() -> void:
-	self.sprite_node.show()
-	self.hoverInfo.show()
-	self.hpLabel.show()
