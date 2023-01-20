@@ -29,13 +29,19 @@ func load_enemies() -> void:
 
 func get_new_enemy() -> void:
 	if self.enemy_scene != null:
-		enemies.enemies_list.shuffle()
-		var enemy_data = enemies.enemies_list.front()
-		self._health_points = enemy_data.hp
-		emit_signal("enemy_health_points_changed", _health_points)
-		self._attack = enemy_data.attack
-		self.enemy_scene.description = enemy_data.description
-		self.enemy_scene.sprite = enemy_data.name
+		var enemy_data = get_enemy_data()
+		set_enemy_data(enemy_data)
+
+func get_enemy_data():
+	enemies.enemies_list.shuffle()
+	return enemies.enemies_list.front()
+
+func set_enemy_data(enemy_data):
+	self._health_points = enemy_data.hp
+	emit_signal("enemy_health_points_changed", _health_points)
+	self._attack = enemy_data.attack
+	self.enemy_scene.description = enemy_data.description
+	self.enemy_scene.sprite = enemy_data.name
 
 func get_enemy_attack() -> int:
 	return self._attack
